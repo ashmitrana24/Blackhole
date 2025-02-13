@@ -1,0 +1,377 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-text {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #a06cd5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 8s ease infinite;
+    background-size: 300% 300%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.group:hover span {
+    background-position: right center;
+    background-size: 200% auto;
+    transition: all 0.5s ease;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.nav-icon {
+    background: linear-gradient(
+        45deg,
+        #ffd700,
+        #ffcc00,
+        #ffd700,
+        #fff8dc,
+        #ffd700
+    );
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    background-size: 200% auto;
+}
+
+.nav-icon:hover {
+    background-position: right center;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.7;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ffd700;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#info-panel {
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#info-panel div[data-component]:hover {
+    transform: translateX(-5px);
+}
+
+/* Modern Loading Animation */
+.loading-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-top-color: #ffd700;
+    border-radius: 50%;
+    animation: loadingRing 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes loadingRing {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smooth Panel Transitions */
+#info-panel {
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.component-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.component-card:hover {
+    transform: translateX(8px);
+}
+
+.component-card.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px theme('colors.blue.500');
+}
+
+/* Remove any conflicting transitions or transforms */
+.component-card > div {
+    transition: background-color 0.3s ease;
+}
+
+.component-card:hover > div {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Animation for the highlight effect */
+@keyframes highlight-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+    }
+}
+
+.component-card > div {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.component-card[data-active="true"] {
+    animation: highlight-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.component-card[data-active="true"] > div {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+#info-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+#info-panel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+#info-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+#info-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Glass Morphism Effects */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth Transitions */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* Icon Animations */
+.fa-circle-notch {
+    animation: spin 10s linear infinite;
+    color: #fb923c;
+}
+
+.fa-wave-square {
+    animation: pulse 2s ease-in-out infinite;
+    color: #3b82f6;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Add these styles */
+.scroll-label {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Disable orbit controls when scrolling */
+.scrolling .orbit-controls {
+    pointer-events: none;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Dynamic Labels */
+.labels-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.label-connector {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.label-connector.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.connector-line {
+    position: absolute;
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3));
+    transform-origin: top;
+    animation: lineGrow 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.label-content {
+    transform: translateX(20px);
+    opacity: 0;
+    animation: contentFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes lineGrow {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes contentFadeIn {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Pulse effect for connection points */
+.connection-point {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.5);
+    }
+}
+
+/* Golden Text Styles */
+.golden-text {
+    background: linear-gradient(
+        45deg,
+        #ffd700,
+        #ffcc00,
+        #ffd700,
+        #fff8dc,
+        #ffd700
+    );
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+    animation: shimmer 8s infinite linear;
+    background-size: 200% auto;
+}
+
+.golden-gradient {
+    background: linear-gradient(
+        45deg,
+        #ffd700,
+        #daa520,
+        #ffd700
+    );
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Navigation buttons */
+nav .component-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav .component-card:hover {
+    transform: translateX(-8px); /* Reverse direction for back button */
+}
+
+nav .component-card > div {
+    transition: all 0.3s ease;
+}
+
+nav .component-card:hover > div {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Icon buttons */
+nav .component-card:last-child:hover {
+    transform: scale(1.1); /* Scale effect for icon buttons */
+}
+
+/* Active states for buttons */
+nav .component-card.active > div {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px theme('colors.blue.500');
+}
